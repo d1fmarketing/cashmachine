@@ -1,0 +1,17 @@
+[Unit]
+Description=Trinity Profitable Trading Engine
+After=network.target redis.service
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/cashmachine/trinity
+Environment="PYTHONUNBUFFERED=1"
+ExecStart=/usr/bin/python3 /opt/cashmachine/trinity/trinity_profitable_NOW.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/trinity-profitable.log
+StandardError=append:/var/log/trinity-profitable.log
+
+[Install]
+WantedBy=multi-user.target

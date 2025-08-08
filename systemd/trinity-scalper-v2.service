@@ -1,0 +1,27 @@
+[Unit]
+Description=Trinity Scalper V2.0 - Premium Edition
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/cashmachine/trinity
+ExecStart=/usr/bin/python3 /opt/cashmachine/trinity/trinity_scalper_v2.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/trinity-scalper-v2.log
+StandardError=append:/var/log/trinity-scalper-v2.error.log
+
+# Security
+PrivateTmp=yes
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/opt/cashmachine /var/log /tmp
+
+# Environment
+Environment="PYTHONUNBUFFERED=1"
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,28 @@
+[Unit]
+Description=ULTRATHINK Revolution - Genius-Level Trading System
+After=network.target redis.service
+Wants=redis.service
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/cashmachine
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+Environment="PYTHONUNBUFFERED=1"
+EnvironmentFile=/opt/cashmachine/.env
+ExecStart=/usr/bin/python3 /opt/cashmachine/trinity/ultrathink_revolution.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+# Resource limits
+LimitNOFILE=65535
+LimitNPROC=4096
+
+# Security
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,24 @@
+[Unit]
+Description=ULTRATHINK EPIC AI Trading System
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/cashmachine/trinity
+ExecStart=/usr/bin/python3 /opt/cashmachine/trinity/ultrathink_epic_fixed.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/ultrathink-epic.log
+StandardError=append:/var/log/ultrathink-epic.log
+
+# Safety limits
+LimitNOFILE=65536
+TimeoutStopSec=30
+
+# Environment
+Environment="PYTHONUNBUFFERED=1"
+
+[Install]
+WantedBy=multi-user.target

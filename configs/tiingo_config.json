@@ -1,0 +1,24 @@
+{
+  "api_token": "ea97772d4100918051b77b585f6ba9b2a0c7a094",
+  "base_urls": {
+    "iex_realtime": "https://api.tiingo.com/iex/",
+    "eod_prices": "https://api.tiingo.com/tiingo/daily/",
+    "crypto": "https://api.tiingo.com/tiingo/crypto/",
+    "news": "https://api.tiingo.com/tiingo/news"
+  },
+  "limits": {
+    "requests_per_hour": 500,
+    "requests_per_minute": 8
+  },
+  "features": {
+    "realtime_stocks": true,
+    "historical_data": true,
+    "crypto_24_7": true,
+    "news_sentiment": true
+  },
+  "integration": {
+    "ultrathink_file": "/opt/cashmachine/trinity/ultrathink_tiingo_integration.py",
+    "howto_file": "/opt/cashmachine/trinity/trinity_tiingo_howto.py",
+    "deployed": "2025-08-06T19:52:00Z"
+  }
+}

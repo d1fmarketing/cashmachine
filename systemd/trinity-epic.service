@@ -1,0 +1,27 @@
+[Unit]
+Description=Trinity Epic Scalper V3.0 - Real Broker Execution
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/cashmachine/trinity
+ExecStart=/usr/bin/python3 /opt/cashmachine/trinity/trinity_scalper_v3_epic.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/trinity-epic.log
+StandardError=append:/var/log/trinity-epic-error.log
+
+# Security
+PrivateTmp=yes
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/opt/cashmachine /var/log /tmp
+
+# Environment
+Environment="PYTHONUNBUFFERED=1"
+
+[Install]
+WantedBy=multi-user.target

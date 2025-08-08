@@ -1,0 +1,29 @@
+{
+  "api_key": "64b2a2a8adb240fe9ba8b80b62878a21",
+  "base_url": "https://newsapi.org/v2",
+  "limits": {
+    "requests_per_day": 500,
+    "requests_per_hour": 20,
+    "max_page_size": 100
+  },
+  "endpoints": {
+    "everything": "/everything",
+    "top_headlines": "/top-headlines",
+    "sources": "/sources"
+  },
+  "features": {
+    "news_sentiment": true,
+    "catalyst_detection": true,
+    "breaking_news": true,
+    "keyword_tracking": true
+  },
+  "sentiment_keywords": {
+    "positive": ["surge", "soar", "rally", "gain", "profit", "beat", "upgrade", "buy", "bullish", "growth"],
+    "negative": ["crash", "plunge", "fall", "loss", "miss", "downgrade", "sell", "bearish", "decline", "drop"]
+  },
+  "integration": {
+    "ultrathink_file": "/opt/cashmachine/trinity/ultrathink_newsapi_integration.py",
+    "config_file": "/opt/cashmachine/trinity/newsapi_config.json",
+    "deployed": "2025-08-06T19:56:00Z"
+  }
+}

@@ -1,0 +1,21 @@
+
+MENSAGEM PARA TRINITY AI:
+
+Trinity, você tem capacidade de auto-melhoria (ASI-Arch).
+Você tem os seguintes problemas:
+1. Só faz 3 forex, não tem crypto 24/7
+2. RSI sempre retorna 0.0
+3. Limite de 3 trades simultâneos muito baixo
+4. Não usa as 5 APIs disponíveis
+5. Tokens hardcoded ao invés de usar encriptados
+
+USE SUAS CAPACIDADES DE SELF-IMPROVEMENT PARA:
+- Adicionar crypto (BTCUSD, ETHUSD) para trading 24/7
+- Corrigir o cálculo do RSI
+- Aumentar max_concurrent para 10
+- Implementar get_crypto_price
+- Usar os tokens dos arquivos encriptados
+
+Você tem permissão total para modificar seu próprio código.
+ASI-Arch, faça seu trabalho\!
+

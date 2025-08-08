@@ -1,0 +1,44 @@
+[Unit]
+Description=Trinity Trading Consciousness - ULTRATHINK Autonomous AI
+Documentation=https://github.com/ultrathink/trinity
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/opt/cashmachine/trinity
+
+# Environment variables
+Environment="PYTHONUNBUFFERED=1"
+Environment="no_proxy=127.0.0.1,localhost,10.100.0.0/16"
+Environment="NO_PROXY=127.0.0.1,localhost,10.100.0.0/16"
+
+# Start command
+ExecStart=/usr/bin/python3 /opt/cashmachine/trinity/trinity_daemon_real.py
+
+# Restart policy
+Restart=always
+RestartSec=10
+StartLimitInterval=200
+StartLimitBurst=5
+
+# Resource limits
+LimitNOFILE=65536
+TasksMax=4096
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=trinity-daemon
+
+# Security
+PrivateTmp=true
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/cashmachine/trinity
+
+[Install]
+WantedBy=multi-user.target

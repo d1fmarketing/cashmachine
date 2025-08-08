@@ -1,0 +1,21 @@
+[Unit]
+Description=Trinity Circuit Breaker - Emergency Stop Loss Protection
+After=network.target redis.service
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/cashmachine/trinity
+Environment="CIRCUIT_BREAKER_THRESHOLD=-200"
+Environment="REDIS_HOST=10.100.3.141"
+Environment="AUTO_RESTART_TRADING=true"
+Environment="OANDA_ACCOUNT_ID=101-001-27538116-001"
+Environment="OANDA_API_TOKEN=c0e18946b8655db1424d60dd50299fe8-c8bc1bedc23770af7aed6e30a6f23fa0"
+ExecStart=/usr/bin/python3 /opt/cashmachine/trinity/trinity_circuit_breaker.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/trinity-breaker.log
+StandardError=append:/var/log/trinity-breaker.log
+
+[Install]
+WantedBy=multi-user.target
